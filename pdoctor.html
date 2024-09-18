@@ -1,0 +1,487 @@
+<html>
+ <head>
+  <title>
+   Medivault
+  </title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to bottom, #ffffff 0%, #1e3a8a 100%);
+    }
+    .header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #ffffff;
+        color: #000;
+    }
+    .header img {
+        height: 40px;
+        margin-right: 20px;
+    }
+    .header h1 {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0;
+    }
+    .dashboard {
+        width: 100%;
+        background-color: #1e3a8a !important;
+        padding: 10px 20px;
+        text-align: left;
+        color: #fff;
+    }
+    .dashboard a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 18px;
+        transition: color 0.3s;
+    }
+    .dashboard a:hover {
+        color: #b2dfdb;
+    }
+    .container {
+        display: flex;
+        flex-wrap: nowrap;
+        padding: 20px;
+        justify-content: space-between;
+        background-color: linear-gradient(to bottom, #ffffff 0%, #1e3a8a 100%);
+    }
+    .card {
+        border: 1px solid #00796b;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin: 10px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    .profile {
+        width: 20%;
+        background-color: #ffffff;
+    }
+    .history {
+        width: 50%;
+        background-color: #b2dfdb;
+    }
+    .patient-management-feedback {
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .profile img {
+        width: 100px;
+        height: 100px;
+        background-color: #ccc;
+        display: block;
+        margin: 0 auto;
+        border-radius: 50%;
+    }
+    .profile p, .history p, .patient-management p, .feedback p {
+        margin: 5px 0;
+        color: #004d40;
+    }
+    .patient-attended {
+        border-top: 1px solid #00796b;
+        margin-top: 10px;
+        padding-top: 10px;
+    }
+    .patient-attended div {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+    .patient-attended img {
+        width: 30px;
+        height: 30px;
+        background-color: #ccc;
+        margin-right: 10px;
+        border-radius: 50%;
+    }
+    .patient-attended div p {
+        margin-left: 10px;
+    }
+    .history table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+        margin-bottom: 20px;
+        background-color: #ffffff;
+    }
+    .history th, .history td {
+        border: 1px solid #00796b;
+        padding: 5px;
+        text-align: left;
+        width: 50%;
+    }
+    .history a {
+        color: #00796b;
+        text-decoration: none;
+    }
+    .history a:hover {
+        text-decoration: underline;
+    }
+    .feedback textarea {
+        width: 100%;
+        height: 100px;
+        margin-top: 10px;
+        resize: none;
+        border: 1px solid #00796b;
+        border-radius: 4px;
+    }
+    .card h2 {
+        margin: 0 0 10px 0;
+        font-size: 18px;
+        font-weight: bold;
+        color: #004d40;
+    }
+    .card h2::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #00796b;
+        margin: 10px 0;
+    }
+    .feedback button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #00796b;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .feedback button:hover {
+        background-color: #004d40;
+    }
+    .patient-management-section p a {
+        color: #00796b;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    .patient-management-section p a:hover {
+        color: #004d40;
+    }
+    .patient-management {
+        flex: 1;
+        margin-bottom: 20px;
+        background-color: #0f3bb1;
+    }
+    .feedback {
+        flex: 1;
+        margin-bottom: 20px;
+        background-color: #e5db25;
+    }
+    .more-tables {
+        display: none;
+    }
+    .more-tables table {
+        margin-top: 20px;
+    }
+</style>
+<script>
+    function showMore() {
+        var moreTables = document.getElementById('more-tables');
+        if (moreTables.style.display === 'none') {
+            moreTables.style.display = 'block';
+        } else {
+            moreTables.style.display = 'none';
+        }
+    }
+</script>
+  <script>
+   function showMore() {
+            var moreTables = document.getElementById('more-tables');
+            if (moreTables.style.display === 'none') {
+                moreTables.style.display = 'block';
+            } else {
+                moreTables.style.display = 'none';
+            }
+        }
+  </script>
+ </head>
+ <body>
+  <div class="header">
+   <img alt="Logo" src="https://via.placeholder.com/40" />
+   <h1>
+    MEDIVAULT
+   </h1>
+  </div>
+  <div class="dashboard">
+   <a href="#">Home</a>
+   <a href="#">About Us</a>
+   <a href="#">Patient</a>
+   <a href="#">Doctors</a>
+   <a href="#">Medipal</a>
+   <a href="#">Contact</a>
+  </div>
+  <div class="container">
+   <div class="profile card">
+    <img alt="Doctor's profile picture" height="100" src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-LmQ09WWGIGwOeeA4ArnRw0x5/user-uJPET5fjNenSso8wCETWVNOp/img-Tq7bJsntr6HI37i1vl95ny2S.png?st=2024-09-17T15%3A00%3A46Z&amp;se=2024-09-17T17%3A00%3A46Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-09-16T23%3A31%3A11Z&amp;ske=2024-09-17T23%3A31%3A11Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=szoi31ZQrmwyNkcIaRwQEeP5MQs4NeNBhvRjwd5QKkE%3D" width="100"/>
+    <p>
+     Dr. ABC
+    </p>
+    <p>
+     UID - xxx-xxx-xxx
+    </p>
+    <p>
+     Specialist - XYZ
+    </p>
+    <p>
+     Total No. of patient attended - 40
+    </p>
+    <p>
+     Gender - Male
+    </p>
+    <p>
+     Age - 45
+    </p>
+    <div class="patient-attended">
+     <p>
+      Patient Attended
+     </p>
+     <div>
+      <img alt="Patient profile picture" height="30" src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-LmQ09WWGIGwOeeA4ArnRw0x5/user-uJPET5fjNenSso8wCETWVNOp/img-PEOsSEiwNfcZqv3B83eQoK6k.png?st=2024-09-17T15%3A00%3A43Z&amp;se=2024-09-17T17%3A00%3A43Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-09-16T23%3A17%3A32Z&amp;ske=2024-09-17T23%3A17%3A32Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=pXS27TKFnMfFjvojvJ%2B%2BargqpsLV0UgQUqzM9XOXuAA%3D" width="30"/>
+      <p style="margin-left: 10px;">
+       Name - X
+      </p>
+      <p style="margin-left: 10px;">
+       Disease - Y
+      </p>
+     </div>
+     <div>
+      <img alt="Patient profile picture" height="30" src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-LmQ09WWGIGwOeeA4ArnRw0x5/user-uJPET5fjNenSso8wCETWVNOp/img-PEOsSEiwNfcZqv3B83eQoK6k.png?st=2024-09-17T15%3A00%3A43Z&amp;se=2024-09-17T17%3A00%3A43Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-09-16T23%3A17%3A32Z&amp;ske=2024-09-17T23%3A17%3A32Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=pXS27TKFnMfFjvojvJ%2B%2BargqpsLV0UgQUqzM9XOXuAA%3D" width="30"/>
+      <p style="margin-left: 10px;">
+       Name - A
+      </p>
+      <p style="margin-left: 10px;">
+       Disease - C
+      </p>
+     </div>
+     <div>
+      <img alt="Patient profile picture" height="30" src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-LmQ09WWGIGwOeeA4ArnRw0x5/user-uJPET5fjNenSso8wCETWVNOp/img-PEOsSEiwNfcZqv3B83eQoK6k.png?st=2024-09-17T15%3A00%3A43Z&amp;se=2024-09-17T17%3A00%3A43Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-09-16T23%3A17%3A32Z&amp;ske=2024-09-17T23%3A17%3A32Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=pXS27TKFnMfFjvojvJ%2B%2BargqpsLV0UgQUqzM9XOXuAA%3D" width="30"/>
+      <p style="margin-left: 10px;">
+       Name - D
+      </p>
+      <p style="margin-left: 10px;">
+       Disease - E
+      </p>
+     </div>
+     <p>
+      ... open list ...
+     </p>
+    </div>
+   </div>
+   <div class="history card">
+    <h2>
+     History
+    </h2>
+    <table>
+     <tr>
+      <th>
+       Patient Name - XYZ
+      </th>
+      <th>
+       Disease - Malaria
+      </th>
+     </tr>
+     <tr>
+      <td>
+       <a href="#">Reports</a>
+      </td>
+      <td>
+       <a href="#">Records</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <a href="#">Invoices</a>
+      </td>
+      <td>
+       <a href="#">Medicine</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <a href="#">Details</a>
+      </td>
+      <td>
+      </td>
+     </tr>
+    </table>
+    <table>
+     <tr>
+      <th>
+       Patient Name - P
+      </th>
+      <th>
+       Disease - Dengue
+      </th>
+     </tr>
+     <tr>
+      <td>
+       <a href="#">Reports</a>
+      </td>
+      <td>
+       <a href="#">Records</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <a href="#">Invoices</a>
+      </td>
+      <td>
+       <a href="#">Medicine</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <a href="#">Details</a>
+      </td>
+      <td>
+      </td>
+     </tr>
+    </table>
+    <table>
+     <tr>
+      <th>
+       Patient Name - N
+      </th>
+      <th>
+       Disease - Covid
+      </th>
+     </tr>
+     <tr>
+      <td>
+       <a href="#">Reports</a>
+      </td>
+      <td>
+       <a href="#">Records</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <a href="#">Invoices</a>
+      </td>
+      <td>
+       <a href="#">Medicine</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <a href="#">Details</a>
+      </td>
+      <td>
+      </td>
+     </tr>
+    </table>
+    <p>
+     <a href="javascript:void(0);" onclick="showMore()">More...</a>
+    </p>
+    <div id="more-tables" class="more-tables">
+     <table>
+      <tr>
+       <th>
+        Patient Name - A
+       </th>
+       <th>
+        Disease - Flu
+       </th>
+      </tr>
+      <tr>
+       <td>
+        <a href="#">Reports</a>
+       </td>
+       <td>
+        <a href="#">Records</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <a href="#">Invoices</a>
+       </td>
+       <td>
+        <a href="#">Medicine</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <a href="#">Details</a>
+       </td>
+       <td>
+       </td>
+      </tr>
+     </table>
+     <table>
+      <tr>
+       <th>
+        Patient Name - B
+       </th>
+       <th>
+        Disease - Cold
+       </th>
+      </tr>
+      <tr>
+       <td>
+        <a href="#">Reports</a>
+       </td>
+       <td>
+        <a href="#">Records</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <a href="#">Invoices</a>
+       </td>
+       <td>
+        <a href="#">Medicine</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <a href="#">Details</a>
+       </td>
+       <td>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="patient-management-feedback">
+    <div class="patient-management card" style="background-color: #b3e5fc;">
+     <h2>
+      Patient Management
+     </h2>
+     <p>
+      <a href="#">Scan QR</a>
+     </p>
+     <p>
+      <a href="#">Enter UHID</a>
+     </p>
+     <p>
+      <a href="#">Update Data</a>
+     </p>
+    </div>
+    <div class="feedback card">
+     <h2>
+      Feedback
+     </h2>
+     <textarea placeholder="Write feedback"></textarea>
+     <button type="button">
+      Submit
+     </button>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>
