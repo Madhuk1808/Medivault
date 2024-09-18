@@ -1,0 +1,570 @@
+<html lang="en"></html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medivault</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #fefeff;
+            color: rgb(5, 2, 89);
+            /* padding: 6px; */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header img {
+            height: 40px;
+            margin-right: 8px;
+        }
+
+        header h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        header .contact-info {
+            display: flex;
+            gap: 32px;
+        }
+
+        header .contact-info div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        header button {
+            background-color: #2563eb;
+            padding: 8px 20px;
+            border: none;
+            margin-right: 20px;
+            border-radius: 9999px;
+            color: white;
+            cursor: pointer;
+        }
+
+        nav {
+            background-color: #1e40af;
+            /* justify-content: end; */
+            /* position: fixed; */
+           /* border: 2px solid red; */
+            color: white;
+            padding: 16px;
+            display: flex;
+    
+        }
+
+        nav ul {
+            display: flex;
+            /* border: 2px solid red; */
+            gap: 32px;
+            list-style: none;
+            margin: 0;
+            margin-left: 10px;
+            padding: 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img{
+            /* mix-blend-mode: color-burn; */
+            width: 30%;
+            height: 50%;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            gap: 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            display: flex;
+            padding: 16px;
+        }
+
+        .sidebar,
+        .main-content,
+        .patient-info {
+            padding: 16px;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar {
+            width: 25%;
+            background-color: #1e3a8a;
+            color: white;
+        }
+
+        .sidebar .user-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .sidebar .user-info i {
+            font-size: 32px;
+        }
+
+        .sidebar .user-info span {
+            margin-left: 8px;
+        }
+
+        .appointment {
+            background-color: #fb923c;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        .appointment h2 {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .appointment p {
+            margin: 4px 0;
+        }
+
+        .appointment button {
+            background-color: #7c3aed;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 9999px;
+            color: white;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+
+        .main-content {
+            width: 50%;
+            margin: 0 16px;
+        }
+
+        .main-content h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        .main-content h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .main-content p {
+            margin: 4px 0;
+        }
+
+        .main-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+
+        .main-content th,
+        .main-content td {
+            border: 1px solid #e5e7eb;
+            padding: 18px;
+            text-align: left;
+        }
+
+        .patient-info {
+            width: 25%;
+        }
+
+        .patient-info h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        .patient-info h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .patient-info p {
+            margin: 4px 0;
+        }
+
+        .patient-info img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        
+
+        .patient-info .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .patient-info .stat {
+            padding: 16px;
+            border-radius: 8px;
+        }
+
+        .patient-info .stat h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .h1colour {
+            color: rgb(1, 1, 57);
+        }
+
+        .h2colour {
+            color: rgb(8, 127, 224);
+        }
+        .contact{
+            display: flex;
+            flex-direction: column;
+            font-size: large;
+            margin: 0px 30px;
+        }
+        .progress-bar{
+            width: 100%;
+            background-color: gray;
+            border-radius: 9999px;
+            overflow: hidden;
+            height: 8px;
+            margin-top: 8px;
+        }
+        .progress-bar div{
+            height: 100%;
+        }
+        .table thead tr th{
+            margin-left:70px;
+        }
+        .policy{
+            margin-top: 100px;
+            text-align: center;
+        }
+        .policy p{
+            font-size: 18px;
+            color: rgba(135, 155, 161, 0.81);
+        }
+        .policy h1{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        .footer{
+            display: grid;
+            gap: 2rem;
+            margin-left: 30px;
+            
+            margin-top: 80px;
+            grid-template-columns: 1fr 1fr 1fr;
+              
+        }
+        .container1{
+            border: .2px solid rgb(212, 205, 205);
+            /* box-shadow: 0 0 10px rgba(3, 3, 3, 0.2); */
+            height: 240px;
+            width: 500px;
+            text-align: center;
+            /* margin-bottom: 50px; */
+        }
+        .container1 h2{
+            color: #1e3a8a;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .container1 p{
+            color: #6f8695;
+        }
+        .container1 img{
+            width: 65px;
+            height: 60px;
+            margin-top: 25px;
+        }
+        .clinical-summary{
+            margin-top: 12px;
+            margin-bottom: 30px;
+        }
+        .Monitoringplan{
+            margin-top: 12px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/Untitled design.jpg" alt="Medivault Logo">
+            <h1><span class="h1colour">MEDI</span><span class="h2colour">VAULT</span></h1>
+        </div>
+        <div class="contact-info">
+            <div class="contact">
+                <div class="fa-contact">
+                    <i class="fas fa-phone-alt"></i>
+                <span style="font-size: 20px;">CUSTOMER CARE</span>
+                </div>
+                <span style="color: #2563eb;">(+91) 9810975487</span>
+            </div>
+            <div class="contact">
+                <div class="fa-clocks">
+                    <i class="fas fa-clock"></i>
+                <span style="font-size: 20px;">WORK HOUR</span>
+                </div>
+                <span style="color: #2563eb;">24x7 Everyday</span>
+            </div>
+        </div>
+        <button>Connect</button>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Patient</a></li>
+            <li><a href="#">Doctors</a></li>
+            <li><a href="#">Medipal</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="sidebar">
+            <!-- <div class="user-info">
+                <i class="fas fa-user-circle"></i>
+                <span>XXXX-XXXX-XXXX</span>
+            </div> -->
+            <div style="font-size: 30px; margin-bottom: 20px;">
+                <b>Recent Visits</b>
+            </div>
+            <div class="appointment">
+                <div class="flex justify-between items-center">
+                    <span>18/10/2023</span>
+                    <span>09:00</span>
+                    <i class="fas fa-stethoscope"></i>
+                </div>
+                <h2>Dr Praveen CLINIC 1</h2>
+                <p>Ophtalmologue</p>
+                <p>Clinital - Votre plateforme unique</p>
+                <p>01 quartier d'amour et d'innovation</p>
+                <p>10 000 Rabat</p>
+                <p>Accès handicapé</p>
+                <button>view</button>
+            </div>
+            <div class="appointment" style="background-color: #a78bfa;">
+                <div class="flex justify-between items-center">
+                    <span>18/10/2022</span>
+                    <span>11:30</span>
+                    <i class="fas fa-video"></i>
+                </div>
+                <h2>Dr Ambrish CLINIC 2</h2>
+                <p>Médecin généraliste</p>
+                <p>Clinital - Votre plateforme unique</p>
+                <p>01 quartier d'amour et d'innovation</p>
+                <p>10 000 Rabat</p>
+                <p>Accès handicapé</p>
+                <button style="background-color: #2563eb;">view</button>
+            </div>
+            <div class="appointment" style="background-color: #a78bfa;">
+                <div class="flex justify-between items-center">
+                    <span>18/10/2021</span>
+                    <span>14:15</span>
+                    <i class="fas fa-stethoscope"></i>
+                </div>
+                <h2>Dr Happu Singh CLINIC 3</h2>
+                <p>Médecin généraliste</p>
+                <p>Clinital - Votre plateforme unique</p>
+                <p>01 quartier d'amour et d'innovation</p>
+                <p>10 000 Rabat</p>
+                <p>Accès handicapé</p>
+                <button style="background-color: #2563eb;">view</button>
+            </div>
+        </div>
+        <div class="main-content">
+            <div >
+                <h2>Monitoring Plan</h2>
+                <div class="Monitoringplan">
+                    <h3>Clinic Consultation @MedSyl</h3>
+                    <p>11/07/2021 @ 11:11</p>
+                    <p>Dr. Sphen Conley</p>
+                </div>
+                <div class="clinical-summary">
+                    <h3>Clinical Summary</h3>
+                    <p>A negative test result only means that you did not have COVID-19 at the time of testing. However,
+                        that does not mean you will not get COVID-19.</p>
+                    <p>An after-visit summary that provides a patient with relevant and actionable information and
+                        instructions containing the patient name, provider's office contact information, date and
+                        location of visit, an updated medication list, updated vitals, reason(s) for visit</p>
+                </div>
+                <div class="Monitoringplan">
+                    <h3>Prescribed Monitoring Plan</h3>
+                    <p>Stephen Conley (1 month)</p>
+                    <p>11/07/2021</p>
+                    <p>Amount: <span style="color: #2563eb;">$300</span></p>
+                </div>
+                <table class = table>
+                    <thead>
+                        <tr>
+                            <th>Monitored Trackers</th>
+                            <th>Reporting Time & Reminder</th>
+                            <th>Frequency and Review</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Blood Pressure</td>
+                            <td>Thrice Time @ 8:00 am, 3:00 pm, 8:00 pm</td>
+                            <td>The only way to know if you have high blood pressure.</td>
+                        </tr>
+                        <tr>
+                            <td>Exercise</td>
+                            <td>Daily @ 06:00-8:00 am</td>
+                            <td>Your doctor will probably order you have neurological changes,</td>
+                        </tr>
+                        <tr>
+                            <td>Food</td>
+                            <td>Thrice Time @ 8:00 am, 3:00 pm, 8:00 pm</td>
+                            <td>Your doctor will probably order you have neurological changes,</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" rowspan="2" style="font-size: 20px;"><B>Total Amount Spend</B>
+                                <p>Rs.1,300.00</p>
+                            </td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+        <div class="patient-info">
+            <div>
+                <h2>Patient</h2>
+                <div>
+                    <h3 style="font-size: 20PX; color: #1e3a8a;">ARUN RAJPUT</h3>
+                    <!-- <p><b>UHID number:</b> 2507 1803 2003</p>
+                    <p><b>Gender:</b> Female</p>
+                    <p><b>DOB:</b> 25.07.2003</p> -->
+                    <table>
+                        <tr>
+                            <td><b>UHID No</b></td>
+                            <td>:</td>
+                            <td>1810-0007-2580</td>
+                        </tr>
+                        <tr>
+                            <td><b>Gender</b></td>
+                            <td>:</td>
+                            <td>Male</td>
+                            
+                        </tr>
+                           <td><b>DOB</b></td>
+                            <td>:</td>
+                            <td>25/12/2003</td>
+                        <tr>
+                            
+                        </tr>
+                    </table>
+                </div>
+                <img src="images/Screenshot 2024-09-17 at 4.22.57 PM.png"
+                    alt="Patient Image">
+            </div>
+            <div class="stats">
+                <div class="stat" style="background-color: #fee2e2;">
+                    <h3>Blood Pressure</h3>
+                    <p>35%</p>
+                    <div class="progress-bar">
+                        <div style="width: 35%; background-color: red;"></div>
+                    </div>
+                    <p>141/90 mmhg</p>
+                    
+                </div>
+                <div class="stat" style="background-color: #bfdbfe;">
+                    <h3>Body Temperature</h3>
+                    <p>15%</p>
+                    <div class="progress-bar">
+                        <div style="width: 15%; background-color: rgb(22, 69, 241);"></div>
+                    </div>
+                    <p>29°C</p>
+                    
+                </div>
+                <div class="stat" style="background-color: #d1fae5;">
+                    <h3>Body Weight</h3>
+                    <p>40%</p>
+                    <div class="progress-bar">
+                        <div style="width: 40%; background-color: rgb(34, 139, 92);"></div>
+                    </div>
+                    <p>78kg</p>
+                    
+                </div>
+                <div class="stat" style="background-color: #e9d5ff;">
+                    <h3>Body Height</h3>
+                    <p>30%</p>
+                    <div class="progress-bar">
+                        <div style="width: 30%; background-color: rgb(135, 75, 240);"></div>
+                    </div>
+                    <p>5.8" inc</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="policy">
+        <p>Government Health Policies</p>
+        <h1 style="color: #1e3a8a;">Coverage and Eligibility</h1>
+    </div>
+    <div class="footer">
+        <div class="container1">
+            <img src="images/ayushmanbharat.svg" alt="load image">
+            <h2>Ayushman Bharat</h2>
+            <p>Over 500 million people are eligible</p>
+        </div>
+        <div class="container1">
+            <img src="images/national health.svg" alt="load image">
+            <h2>National Health Mission</h2>
+            <p>More than 200 million beneficiaries</p></div>
+        <div class="container1">
+            <img src="images/swasthya suraksha.svg" alt="load image">
+            <h2>Pradhan Mantri Swasthya
+                Suraksha Yojana</h2>
+            <p>Aims to benefit millions across the country</p>
+        </div>
+        <div class="container1">
+            <img src="images/jan ausadhi.svg" alt="load image">
+            <h2>Jan Aushadhi Yojana</h2>
+            <p>Over 100 million patients supported</p>
+        </div>
+        <div class="container1">
+            <img src="images/Rastriya swasthya.svg" alt="load image">
+            <h2>Rashtriya Swasthya Bima
+                Yojana</h2>
+            <p>Covering 150 million families</p>
+        </div>
+        <div class="container1"><img src="images/immunization program.svg" alt="load image">
+            <h2>Universal Immunization
+                Program</h2>
+            <p>Over 27 million children immunized annually</p></div>
+    </div>
+</body>
+
+</html>
