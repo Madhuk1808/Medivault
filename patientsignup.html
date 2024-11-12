@@ -476,7 +476,46 @@ button:hover {
 </html>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-  $(document).ready(function(){
-    alert("hello")
-  })
-</script>
+    $(document).ready(function() {
+      $('#patientForm').on('submit', function(e) {
+        e.preventDefault(); 
+       
+        var formData = {
+          aadhaar: $('#aadhaar').val(),
+          fullName: $('#full-name').val(),
+          gender: $('#gender').val(),
+          bloodGroup: $('#blood-group').val(),
+          dob: $('#dob').val(),
+          state: $('#state').val(),
+          address: $('#address').val(),
+          city: $('#city').val(),
+          zip: $('#zip').val(),
+          mobile: $('#mobile').val(),
+          emergency: $('#emergency').val(),
+          email: $('#email').val(),
+          guardianName: $('#guardian-name').val(),
+          password: $('#password').val(),
+          confirmPassword: $('#confirm-password').val(),
+          otp: $('#otp').val(),
+          terms: $('#terms').prop('checked'),
+          agreement: $('#agreement').prop('checked')
+        };
+       
+        $.ajax({
+          url: 'https://example.com/api/register', 
+          type: 'POST',
+          data: JSON.stringify(formData), 
+          contentType: 'application/json',
+          dataType: 'json', 
+          success: function(response) {
+            $('#responseMessage').html('<p>Registration successful!</p>');
+            console.log(response); 
+          },
+          error: function(xhr, status, error) {
+            $('#responseMessage').html('<p>Error: ' + error + '</p>');
+            console.log(xhr.responseText); 
+          }
+        });
+      });
+    });
+  </script>
